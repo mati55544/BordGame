@@ -1,6 +1,6 @@
 ﻿namespace BoardGame;
 
-class Program
+public class Program
 {
     
     public const int WorldSize = 30;
@@ -13,13 +13,13 @@ class Program
           
         do
         {
-            var player1 = new Player();
-            player1.ReadPlayerPosition(1);
+            var point1 = new Point();
+            point1.ReadPointPosition("player 1");
 
 
-            var player2 = new Player();
-            player2.ReadPlayerPosition(2);
-
+           var point2 = new Point();
+            point2.ReadPointPosition("player 2");
+            
 
             var carpet = new Wincarpet();
             carpet.ReadCarpetPosition();
@@ -28,26 +28,26 @@ class Program
             var board = new PrintBoard();
             
 
-            var turn = new TurnManger();
+            var playerturn = new Player();
           
 
             while (true)
             {
-                board.PrintGameBoard(player1, player2, carpet);
-                if (turn.isPlayerWon(1, player1, carpet)) 
+                board.PrintGameBoard(point1, point2, carpet);
+                if (playerturn.isPlayerWon(1, point1, carpet)) 
                 {
                     Summary.numofwinsA++;
-                    Summary.totalstepsA += turn.GetSteps(1);
-                    Summary.totalstepsB += turn.GetSteps(2);
+                    Summary.totalstepsA += playerturn.GetSteps(1);
+                    Summary.totalstepsB += playerturn.GetSteps(2);
                     break;
                 }
-                board.PrintGameBoard(player1, player2, carpet);
+                board.PrintGameBoard(point1, point2, carpet);
 
-                if (turn.isPlayerWon(2, player2, carpet))
+                if (playerturn.isPlayerWon(2, point2, carpet))
                 {
                     Summary.numofwinsB++;
-                    Summary.totalstepsB += turn.GetSteps(2);
-                    Summary.totalstepsA += turn.GetSteps(1);
+                    Summary.totalstepsB += playerturn.GetSteps(2);
+                    Summary.totalstepsA += playerturn.GetSteps(1);
                     break;
                 }
 

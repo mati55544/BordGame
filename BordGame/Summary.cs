@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace BoardGame
 {
-    internal class Summary
+    public class Summary
     {
-        public static int numofwinsA = 0;
-        public static int numofwinsB = 0;
-        public static int totalstepsA = 0;
-        public static int totalstepsB = 0;
-        public int GetoOverallwinner() //(int numofwinsA, int numofwinsB, int totalstepsA, int totalstepsB)
+        public static int numofwinsA {get; set;}
+        public static int numofwinsB { get; set; }
+        public static int totalstepsA { get; set; }
+        public static int totalstepsB { get; set; }
+        //static constructor
+        static Summary()
+        { numofwinsA = 0; numofwinsB = 0; totalstepsA = 0; totalstepsB = 0; }
+        public int GetoOverallwinner() 
         {
-            Console.WriteLine($"Game summary: \n player1 {numofwinsA} wins, {totalstepsA} total player1 steps \n  player2 {numofwinsB} wins, {totalstepsB} total player1 steps ");
+            Console.WriteLine($"Game summary: \n player1 {numofwinsA} wins, {totalstepsA} total player1 steps \n  player2 {numofwinsB} wins, {totalstepsB} total player2 steps ");
             if (numofwinsA > numofwinsB)
             {
                 Console.WriteLine("player1 is the overall winner!");

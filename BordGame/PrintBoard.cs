@@ -8,7 +8,7 @@ namespace BoardGame
 {
     public class PrintBoard
     {
-        public void  PrintGameBoard(Player player1 , Player player2, Wincarpet carpet1)
+        public void  PrintGameBoard(Point player1 , Point player2, Wincarpet carpet1)
         {
             //printing the world game 
             var world = new char[Program.WorldSize + 2,Program.WorldSize + 2];
